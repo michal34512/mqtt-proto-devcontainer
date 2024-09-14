@@ -1,0 +1,29 @@
+{
+	"name": "Proto-Clean",
+    "build": {
+		"dockerfile": "Dockerfile"
+	},
+    "mounts": [
+		"source=extensionCache,target=/root/.vscode-server/extensions,type=volume"
+	],
+	"customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "ms-vscode.cmake-tools",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.cmake-tools",
+                "twxs.cmake",
+                "ms-vscode.makefile-tools"
+            ]
+        }
+	},
+	"runArgs": [
+        "--privileged"
+	],
+    "appPort": [ "1883:1883" ],
+    "remoteUser": "ubuntu",
+    "postAttachCommand": "mosquitto -d -c mosquitto.conf"
+}
