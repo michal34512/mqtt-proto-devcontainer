@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
 		client.connect(connOpts);
 
 		std::cout << "\nSending message..." << std::endl;
-		auto pubmsg = mqtt::make_message("my_topic", "huj");
+		auto pubmsg = mqtt::make_message("my_topic", encrypted);
 		pubmsg->set_qos(2);
 		client.publish(pubmsg);
 
